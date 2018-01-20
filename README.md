@@ -1,2 +1,2 @@
 # hashtags
-Replace pattern for hashtags in WordPress
+Two methods of making hashtags clickable search links in WordPress.
