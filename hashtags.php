@@ -8,7 +8,7 @@
 
 
 
-/* 1. Before saving the post to database */
+/* 1. Before saving the post */
 
 function linked_hashtags( $content ) {
     $content = preg_replace('/(^|\s)#([A-Za-z0-9_]+)/', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content); 
