@@ -24,7 +24,7 @@ add_filter( 'content_save_pre', 'linked_hashtags', 10, 1 );
 /* 2. Only at display */
 
 function linked_hashtags( $content ) {
-    $content = preg_replace('/((?<!&|\)|\||\/|[a-z])#(?!\s|#|\*|\$|^[a-z]).*?)([^\s|^"|^\)|^\.<]+)/i', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content); 
+    $content = preg_replace('/((?<!&|\)|\||\/|[0-9]|[a-z]|=")#(?!\s|#|\*|\$|^[a-z]).*?)([^\s|^"|^\)|^\.<]+)/i', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content); 
 	
   return $content;
 }
