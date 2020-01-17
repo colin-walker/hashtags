@@ -11,8 +11,7 @@
 /* 1. Before saving the post */
 
 function linked_hashtags( $content ) {
-    $content = preg_replace('/(^|\s)#([A-Za-z0-9_]+)/', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content); 
-	
+  $content = preg_replace('/((?<!&|\#|\)|\||\/|\[|[0-9]|[a-z]|=")#(?!\s|#|\*|\$|^[a-z]).*?)([^\s|^"|^\)|^\.<]+)/i', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content);
   return $content;
 }
 
@@ -24,8 +23,7 @@ add_filter( 'content_save_pre', 'linked_hashtags', 10, 1 );
 /* 2. Only at display */
 
 function linked_hashtags( $content ) {
-    $content = preg_replace('/((?<!&|\)|\||\/|[0-9]|[a-z]|=")#(?!\s|#|\*|\$|^[a-z]).*?)([^\s|^"|^\)|^\.<]+)/i', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content); 
-	
+  $content = preg_replace('/((?<!&|\#|\)|\||\/|\[|[0-9]|[a-z]|=")#(?!\s|#|\*|\$|^[a-z]).*?)([^\s|^"|^\)|^\.<]+)/i', '<span class="hashtag"><a href="'.site_url().'?s=%23'.'$2">#$2</a></span>', $content);
   return $content;
 }
 
